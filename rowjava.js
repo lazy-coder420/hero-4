@@ -94,7 +94,7 @@ function updateDashboard(){
 /* Event Delegation */
 
 document.getElementById("jobs-container").addEventListener("click", function(e){
-
+e.stopImmediatePropagation();
   const button = e.target.closest("button");
   if(!button) return;
 

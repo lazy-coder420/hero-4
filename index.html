@@ -1,34 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hero-4</title>
-    <!-- titel incon  -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <!-- <tailwimd></tailwimd> -->
-     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Application Tracker</title>
 
-
-    <!-- google font  i used xyz changeable -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-     
-<style>
-    *{
-        font-family: 'Inter', sans-serif;  
-        /* font-family: changeable; */
-    }
-</style>
-
-<!-- google font awesome changeable -->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
 </head>
-<body>
+<body class="bg-base-200">
+
+<div class="max-w-6xl mx-auto p-4">
+
+  <h1 class="text-3xl font-bold mb-6">Job Application Tracker</h1>
+
+  <!-- Dashboard -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+    <div class="card bg-base-100 shadow">
+      <div class="card-body">
+        <h2>Total</h2>
+        <p id="total-count" class="text-2xl font-bold text-blue-600">0</p>
+      </div>
+    </div>
+
+    <div class="card bg-base-100 shadow">
+      <div class="card-body">
+        <h2>Interview</h2>
+        <p id="interview-count" class="text-2xl font-bold text-green-600">0</p>
+      </div>
+    </div>
+
+    <div class="card bg-base-100 shadow">
+      <div class="card-body">
+        <h2>Rejected</h2>
+        <p id="rejected-count" class="text-2xl font-bold text-red-600">0</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Jobs Section -->
+  <div class="mt-10">
+
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-bold">Available Jobs</h2>
+      <span id="tab-count" class="text-sm text-gray-500">0 jobs</span>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs tabs-boxed mb-6">
+      <button class="tab tab-active" data-tab="All">All</button>
+      <button class="tab" data-tab="Interview">Interview</button>
+      <button class="tab" data-tab="Rejected">Rejected</button>
+    </div>
+
+    <!-- Cards -->
+    <div id="jobs-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+
+  </div>
+
+</div>
+
+<script src="rowjava.js"></script>
 
 </body>
 </html>

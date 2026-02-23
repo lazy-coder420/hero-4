@@ -1,5 +1,5 @@
 
-
+// Sample job data// 
 let currentTab = "All";
 
 let jobs = [
@@ -13,6 +13,7 @@ let jobs = [
   {id:8, company:"DevSolutions", position:"Full Stack Developer", location:"San Francisco", type:"Full-time", salary:"$130k-$170k", description:"Work on scalable MERN applications.", status:"All"}
 ];
 
+//
 function renderJobs(){
 
   const container = document.getElementById("jobs-container");
@@ -22,7 +23,9 @@ function renderJobs(){
     ? jobs
     : jobs.filter(job => job.status === currentTab);
 
-  document.getElementById("tab-count").innerText = filteredJobs.length + " jobs";
+    document.getElementById("tab-count").innerText = filteredJobs.length + " jobs";
+
+
 
   if(filteredJobs.length === 0){
     container.innerHTML = `
@@ -36,10 +39,13 @@ function renderJobs(){
     return;
   }
 
+
+  // Create job cards//
   filteredJobs.forEach(job => {
 
     const card = document.createElement("div");
     card.className = "card bg-base-100 shadow p-4";
+
 
     card.innerHTML = `
       <div class="flex justify-between">
@@ -68,20 +74,25 @@ function renderJobs(){
         <button class="btn btn-sm btn-error rejected-btn" data-id="${job.id}">
           Rejected
         </button>
-      </div>
-    `;
+      </div>   `;
 
-    container.appendChild(card);
+    
+      container.appendChild(card);
   });
 
   updateDashboard();
 }
+
 
 function getBadgeColor(status){
   if(status === "Interview") return "badge-success";
   if(status === "Rejected") return "badge-error";
   return "badge-neutral";
 }
+
+
+// Update Dashboard Counts ////
+
 
 function updateDashboard(){
   document.getElementById("total-count").innerText = jobs.length;
@@ -91,22 +102,24 @@ function updateDashboard(){
     jobs.filter(j => j.status === "Rejected").length;
 }
 
-/* Event Delegation */
+/* Event Delegation *////
 
 document.getElementById("jobs-container").addEventListener("click", function(e){
-e.stopImmediatePropagation();
+      e.stopImmediatePropagation();
   const button = e.target.closest("button");
   if(!button) return;
 
+
   const id = Number(button.dataset.id);
-  if(!id) return;
+    if(!id) return;
 
   const job = jobs.find(j => j.id === id);
   if(!job) return;
 
+
   // Interview Button
-  if(button.classList.contains("interview-btn")){
-    job.status = job.status === "Interview" ? "All" : "Interview";
+    if(button.classList.contains("interview-btn")){
+      job.status = job.status === "Interview" ? "All" : "Interview";
   }
 
   // Rejected Button
@@ -114,7 +127,7 @@ e.stopImmediatePropagation();
     job.status = job.status === "Rejected" ? "All" : "Rejected";
   }
 
-  // Delete Button
+  // Delete Button///
   else if(button.classList.contains("delete-btn")){
     jobs = jobs.filter(j => j.id !== id);
   }
@@ -122,7 +135,7 @@ e.stopImmediatePropagation();
   renderJobs();
 });
 
-/* Tab Switching */
+//Tab Switching
 
 document.querySelectorAll(".tab").forEach(tab => {
   tab.addEventListener("click", function(){

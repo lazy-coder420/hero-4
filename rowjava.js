@@ -54,7 +54,7 @@ function renderJobs(){
           <p class="text-sm text-gray-500">${job.position}</p>
           <p class="text-sm">${job.location} | ${job.type} | ${job.salary}</p>
         </div>
-        <button class="delete-btn text-gray-400" data-id="${job.id}">
+        <button class="delete-btn text-warning" data-id="${job.id}">
           <i class="fa-solid fa-trash"></i>
         </button>
       </div>
@@ -68,9 +68,10 @@ function renderJobs(){
       <p class="text-sm my-3">${job.description}</p>
 
       <div class="flex gap-2">
-        <button class="btn btn-sm btn-success interview-btn" data-id="${job.id}">
+        <button class="btn btn-sm btn-primary interview-btn" data-id="${job.id}">
           Interview
         </button>
+
         <button class="btn btn-sm btn-error rejected-btn" data-id="${job.id}">
           Rejected
         </button>

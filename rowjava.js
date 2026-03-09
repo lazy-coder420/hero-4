@@ -147,7 +147,7 @@ document.querySelectorAll(".tab").forEach(tab => {
   });
 });
 // document.querySelectorAll(".tab").forEach(tab => {
-//   tab.addEventListener("click", function(){
+// git add .  tab.addEventListener("click", function(){
 //     document.querySelectorAll(".tab").forEach(t => t.classList.remove("tab-active"));
 //     this.classList.add("tab-active");
 //     currentTab = this.dataset.tab;
